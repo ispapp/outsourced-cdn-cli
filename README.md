@@ -12,8 +12,8 @@ This project provides a backend for managing OpenWrt devices and uploading image
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/ispapp_backend.git
-    cd ispapp_backend
+    git clone git@github.com:kmoz000/parse2cdn.git
+    cd parse2cdn
     ```
 
 2. Install dependencies:
@@ -39,14 +39,14 @@ go run main.go upload --input path/to/input.json --folder cloudinary-folder --ou
 
 To serve images and proxy output JSON with fast search, use the `serve` command:
 ```sh
-go run main.go serve --input path/to/cdn.db --port 8080
+go run main.go serve --input path/to/cdn.db 
 ```
 
 ## Testing
 
 To run the tests, use the following command:
 ```sh
-go test ./...
+go test -v
 ```
 
 This will run the tests defined in `main_test.go` to ensure the CLI commands are working correctly.
