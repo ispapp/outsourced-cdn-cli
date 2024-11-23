@@ -1,6 +1,6 @@
 ## Overview
 
-This project provides a backend for managing OpenWrt devices and uploading images to Cloudinary.
+This project provides a backend for managing devices illustrations and uploading images to Cloudinary.
 
 ## Requirements
 
