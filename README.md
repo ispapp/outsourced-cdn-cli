@@ -12,8 +12,8 @@ This project provides a backend for managing devices illustrations and uploading
 
 1. Clone the repository:
     ```sh
-    git clone git@github.com:kmoz000/parse2cdn.git
-    cd parse2cdn
+    git clone git@github.com:ispapp/outsourced-cdn-cli.git
+    cd outsourced-cdn-cli
     ```
 
 2. Install dependencies:
