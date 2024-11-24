@@ -9,6 +9,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os/exec"
 	"strings"
 
 	"github.com/fogleman/gg"
@@ -37,16 +38,39 @@ var ServeCommand = &cli.Command{
 			Aliases: []string{"nf"},
 			Usage:   "Path to custom 'not found' image",
 		},
+		&cli.StringFlag{
+			Name:  "cfd-config",
+			Usage: "Cloudflare config for proxying the open port",
+		},
+		&cli.StringFlag{
+			Name:  "cfd-uuid",
+			Usage: "Cloudflare uuid for proxying the open port",
+		},
 	},
 	Action: func(c *cli.Context) error {
 		input := c.String("input")
 		port := c.String("port")
 		notFoundImage := c.String("notfound")
+		config := c.String("cfd-config")
+		cfduuid := c.String("cfd-uuid")
 		db, err := bitcask.Open(input, bitcask.WithOpenReadonly(true), bitcask.WithAutoRecovery(false))
 		if err != nil {
 			log.Fatalf("Failed to open database: %v", err)
 		}
 		defer db.Close()
+
+		if config != "" && cfduuid != "" {
+			cmd := exec.Command("cloudflared", "tunnel --config ", config, " --url http://localhost:"+port, "run ", cfduuid)
+			if err := cmd.Start(); err != nil {
+				log.Printf("Failed to start cloudflared: %v", err)
+			} else {
+				log.Println("Cloudflared started successfully")
+				log.Printf("cmd: %s", cmd.String())
+			}
+		} else {
+			log.Println("Cloudflare config not provided, skipping cloudflared setup")
+		}
+
 		http.HandleFunc("/img", func(w http.ResponseWriter, r *http.Request) {
 			query := r.URL.Query().Get("q")
 			params := r.URL.Query().Get("p")

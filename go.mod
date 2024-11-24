@@ -7,10 +7,13 @@ require github.com/schollz/progressbar/v3 v3.17.1
 require (
 	github.com/abcum/lcp v0.0.0-20201209214815-7a3f3840be81 // indirect
 	github.com/bzick/tokenizer v1.4.6 // indirect
+	github.com/cloudflare/cloudflare-go v0.110.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.5 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
+	github.com/goccy/go-json v0.10.3 // indirect
 	github.com/gofrs/flock v0.8.1 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
+	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/hashicorp/go-immutable-radix/v2 v2.0.0 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
 	github.com/klauspost/compress v1.15.15 // indirect
@@ -25,6 +28,9 @@ require (
 	go.mills.io/bitcask/v2 v2.1.1 // indirect
 	golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 // indirect
 	golang.org/x/image v0.22.0 // indirect
+	golang.org/x/net v0.31.0 // indirect
+	golang.org/x/text v0.20.0 // indirect
+	golang.org/x/time v0.8.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 

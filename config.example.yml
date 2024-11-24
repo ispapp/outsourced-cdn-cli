@@ -1,0 +1,4 @@
+tunnel: <Tunnel-UUID>
+credentials-file: /root/.cloudflared/<Tunnel-UUID>.json
+warp-routing:
+  enabled: true

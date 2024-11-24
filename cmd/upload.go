@@ -105,7 +105,7 @@ var UploadCommand = &cli.Command{
 			if len(img.Name) < 3 {
 				log.Fatalf("Image name must be at least 3 characters long for image %s", img.Img)
 			}
-			uploadResult, err := cld.Upload.Upload(context.Background(), img.Img, uploader.UploadParams{Folder: folder})
+			uploadResult, err := cld.Upload.Upload(context.Background(), img.Img, uploader.UploadParams{Folder: folder, PublicID: img.Name})
 			if err != nil {
 				log.Fatalf("Failed to upload image %s: %v", img.Img, err)
 			}

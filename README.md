@@ -42,6 +42,15 @@ To serve images and proxy output JSON with fast search, use the `serve` command:
 go run main.go serve --input path/to/cdn.db 
 ```
 
+in case of cloudflared tunnel setup you need to follow the steps below:
+-  install cloudflared
+-  check the official documentation for the setup [link](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/).
+- save the config.yml file in the root directory of the project
+- run the following command:
+```sh
+go run main.go serve --input path/to/cdn.db --cfd-config config.yml
+```
+
 ## Testing
 
 To run the tests, use the following command:
