@@ -73,6 +73,7 @@ var ServeCommand = &cli.Command{
 
 		http.HandleFunc("/img", func(w http.ResponseWriter, r *http.Request) {
 			query := r.URL.Query().Get("q")
+			// origin := r.URL.Headers.Get("origin")
 			params := r.URL.Query().Get("p")
 			if params == "" {
 				params = "c_fit,h_300,w_300"
