@@ -36,7 +36,8 @@ var ServeCommand = &cli.Command{
 		&cli.StringFlag{
 			Name:    "notfound",
 			Aliases: []string{"nf"},
-			Usage:   "Path to custom 'not found' image",
+			// DefaultText: "./notfound.png",
+			Usage: "Path to custom 'not found' image",
 		},
 		&cli.StringFlag{
 			Name:  "cfd-config",
@@ -97,6 +98,7 @@ var ServeCommand = &cli.Command{
 			}
 			if len(found) == 0 {
 				if notFoundImage != "" {
+					w.Header().Set("Content-Type", "image/png")
 					http.ServeFile(w, r, notFoundImage)
 				} else {
 					img := image.NewRGBA(image.Rect(0, 0, 300, 300))
